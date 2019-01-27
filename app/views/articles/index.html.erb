@@ -5,7 +5,9 @@
         <p><%= article.title %></p>
         <p><%= article.created_at %></p>
         <p><%= article.body %></p>
-        <%= image_tag article.image.to_s %>
+        <tr>
+          <td><%= image_tag article.image.to_s %></td>
+        </tr>
       </div>
     <% end %>
   </div>

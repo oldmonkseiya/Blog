@@ -18,9 +18,9 @@ class ArticlesController < ApplicationController
   def create
     @articles = Article.new(article_params)
     if @articles.save
-      redirect_to @articles, notice:'Created'
+      redirect_to root_path, notice:'作成されました'
     else
-      render :new, alert: 'Not created'
+      render :new, alert: '作成されていません'
     end
   end
 
@@ -47,7 +47,7 @@ class ArticlesController < ApplicationController
   end
 
   def article_params 
-    params.require(:article).permit(:title, :body)
+    params.require(:article).permit(:title, :body, :image) 
   end
 
 end
