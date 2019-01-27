@@ -1,0 +1,35 @@
+/* Make space from header */
+.space{
+  background: #fff;
+  width: 100%;
+  height: 300px;
+}
+
+
+.title-before::before{
+  position: relative;
+  content: " ";
+  display: block;
+  border-top: solid 5px gray;
+  left: 0;
+  right: 0;
+  width: 1200px;
+  margin-bottom:30px;
+  margin-top:100px;
+}
+
+.header{
+  padding: 0 !important;
+  padding-top: 10px !important;
+  padding-bottom: 5px !important;
+  top: 0;
+  left: 0;
+  background: #fff;
+  position: fixed;
+  margin: 0 auto;
+  width: 100%;
+  box-shadow: 0px 1px 5px rgba(110,110,110,.1);
+  z-index: 200;
+  text-align: center;
+}
+
