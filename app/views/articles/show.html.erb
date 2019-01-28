@@ -4,8 +4,10 @@
   </h1>
   <p class="date">
     Submitted <%= time_ago_in_words(@articles.created_at) %> Ago
+    <%= link_to 'Edit', edit_article_path(@articles) %>
+    <%= link_to 'Delete', article_path(@articles), method: :delete %>
   </p>
   <p class="body"><%= @articles.body %></p>
   <br>
-  <%= image_tag(@articles.image.url, size:"200x200") unless @articles.image.file.nil? %>
+  <%= image_tag(@articles.image.url, size:"200x200") if @articles.image.file.present? %>
 </div>

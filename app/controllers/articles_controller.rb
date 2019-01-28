@@ -1,51 +1,50 @@
 class ArticlesController < ApplicationController
-  before_action :find_post, only: [:edit, :update, :destroy]
   
   def index
     @articles = Article.order(created_at: :desc)
-  end
-
-  def show 
   end
 
   def new
     @articles = Article.new
   end
 
-  def edit
-  end
 
   def create
     @articles = Article.new(article_params)
     if @articles.save
       redirect_to @articles, notice:'作成されました'
     else
-      render :'new', alert: '作成されていません'
+      render 'new', alert: '作成されていません'
     end
   end
 
+  def show 
+    @articles = Article.find(params[:id])
+  end
+
+  def edit
+    @articles = Article.find(params[:id])
+  end
+
   def update
-    if @article.update(article_params)
-      redirect_to @articles, notice:'Updated'
+    @articles = Article.find(params[:id])
+    
+    if @articles.update(params[:article].permit(:title, :body, :image))
+      redirect_to @articles
     else
-      render :edit, alert: 'Not updated'
+      render 'edit'
     end
   end
 
   def destroy
-    if @articles.destroy
-      redirect_to root_path, notice:'Succeeded'
-    else
-      redirect_to root_path, alert: 'Not deleted'
-    end
+    @articles = Article.find(params[:id])
+    @articles.destroy
+    
+    redirect_to root_path
   end
 
   private
   
-  def find_post
-    @articles = Article.find(params[:id])
-  end
-
   def article_params 
     params.require(:article).permit(:title, :body, :image) 
   end
