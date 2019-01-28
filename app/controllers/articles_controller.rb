@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     if @articles.save
       redirect_to @articles, notice:'作成されました'
     else
-      render :new, alert: '作成されていません'
+      render :'new', alert: '作成されていません'
     end
   end
 
