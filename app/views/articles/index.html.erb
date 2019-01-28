@@ -2,12 +2,10 @@
   <div class="container">
     <% @articles.each do |article| %>
       <div class="col-md-12 text-center">
-        <p><%= article.title %></p>
+        <h2 class="title"><%= link_to article.title, article %></p>
         <p><%= article.created_at %></p>
         <p><%= article.body %></p>
-        <tr>
-          <td><%= image_tag article.image.to_s %></td>
-        </tr>
+        <p><%= image_tag article.image.to_s %></p>
       </div>
     <% end %>
   </div>

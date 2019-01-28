@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :find_post, only: [:show, :edit, :update, :destroy]
+  before_action :find_post, only: [:edit, :update, :destroy]
   
   def index
     @articles = Article.order(created_at: :desc)
@@ -18,7 +18,7 @@ class ArticlesController < ApplicationController
   def create
     @articles = Article.new(article_params)
     if @articles.save
-      redirect_to root_path, notice:'作成されました'
+      redirect_to @articles, notice:'作成されました'
     else
       render :new, alert: '作成されていません'
     end

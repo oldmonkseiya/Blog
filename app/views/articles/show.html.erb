@@ -1,1 +1,11 @@
-
+<div class="container">
+  <h1 class="title">
+    <%= @articles.title %>
+  </h1>
+  <p class="date">
+    Submitted <%= time_ago_in_words(@articles.created_at) %> Ago
+  </p>
+  <p class="body"><%= @articles.body %></p>
+  <br>
+  <%= image_tag(@articles.image.url, size:"200x200") unless @articles.image.file.nil? %>
+</div>
