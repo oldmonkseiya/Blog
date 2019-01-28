@@ -1,10 +1,10 @@
-<%= form_for @articles do |f| %>
-    <% if @articles.errors.any? %>
+<%= form_for @article do |f| %>
+    <% if @article.errors.any? %>
       <div id="errors">
-        <h2><% pluralize(@articles.errors.count, "error")%> Prevented this post from saying
+        <h2><% pluralize(@article.errors.count, "error")%> Prevented this post from saying
         </h2>
         <ul>
-          <% @articles.errors.full_messages.each do |msg|%>
+          <% @article.errors.full_messages.each do |msg|%>
             <li><%= msg %></li>
           <% end %>
         </ul>

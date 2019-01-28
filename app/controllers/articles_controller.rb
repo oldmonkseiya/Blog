@@ -1,44 +1,44 @@
 class ArticlesController < ApplicationController
   
   def index
-    @articles = Article.order(created_at: :desc)
+    @article = Article.order(created_at: :desc)
   end
 
   def new
-    @articles = Article.new
+    @article = Article.new
   end
 
 
   def create
-    @articles = Article.new(article_params)
-    if @articles.save
-      redirect_to @articles, notice:'作成されました'
+    @article = Article.new(article_params)
+    if @article.save
+      redirect_to @article, notice:'作成されました'
     else
       render 'new', alert: '作成されていません'
     end
   end
 
   def show 
-    @articles = Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def edit
-    @articles = Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def update
-    @articles = Article.find(params[:id])
+    @article = Article.find(params[:id])
     
-    if @articles.update(params[:article].permit(:title, :body, :image))
-      redirect_to @articles
+    if @article.update(params[:article].permit(:title, :body, :image))
+      redirect_to @article
     else
       render 'edit'
     end
   end
 
   def destroy
-    @articles = Article.find(params[:id])
-    @articles.destroy
+    @article = Article.find(params[:id])
+    @article.destroy
     
     redirect_to root_path
   end
