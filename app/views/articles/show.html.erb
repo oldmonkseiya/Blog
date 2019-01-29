@@ -4,8 +4,10 @@
   </h1>
   <p class="date">
     Submitted <%= time_ago_in_words(@article.created_at) %> Ago
-    <%= link_to 'Edit', edit_article_path(@article) %>
-    <%= link_to 'Delete', article_path(@article), method: :delete %>
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_article_path(@article) %>
+      <%= link_to 'Delete', article_path(@article), method: :delete %>
+    <% end %>
   </p>
   <p class="body"><%= @article.body %></p>
   <br>

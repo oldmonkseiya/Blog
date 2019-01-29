@@ -1,4 +1,5 @@
 class ArticlesController < ApplicationController
+  before_action :authenticate_user, except: [:index, :show]
   
   def index
     @article = Article.order(created_at: :desc)
@@ -20,6 +21,7 @@ class ArticlesController < ApplicationController
 
   def show 
     @article = Article.find(params[:id])
+    render layout: false # アクションの一番下
   end
 
   def edit

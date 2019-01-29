@@ -14,6 +14,7 @@ gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
 gem 'bootsnap', '>= 1.1.0', require: false
 gem 'carrierwave', '~> 1.3', '>= 1.3.1'
+gem 'devise', '~> 4.2'
 
 
 group :development, :test do

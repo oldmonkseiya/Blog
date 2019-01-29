@@ -30,6 +30,11 @@
         <li class="nav-item">
           <a class="nav-link text-dark textmuted text-muted font-weight-bold" href="#!">contact</a>
         </li>
+        <li>
+          <% if user_signed_in? %>
+            <%= link_to "新規作成", new_article_path %>
+          <% end %>  
+        </li>
       </ul>
     </div>
   </div>
